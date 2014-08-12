@@ -1,0 +1,335 @@
+Initialize engine version: 4.5.2f1 (9abb1b59b47c)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 3000 (ID=0x116)
+    Vendor:   Intel
+    VRAM:     1011 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\pglynn2960\Documents\Elements 2D\Game_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\pglynn2960\Documents\Elements 2D\Game_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\pglynn2960\Documents\Elements 2D\Game_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\pglynn2960\Documents\Elements 2D\Game_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\pglynn2960\Documents\Elements 2D\Game_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\pglynn2960\Documents\Elements 2D\Game_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\pglynn2960\Documents\Elements 2D\Game_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\Users\pglynn2960\Documents\Elements 2D\Game_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+- Completed reload, in  0.067 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found.
+<RI> Input initialized.
+Platform assembly: C:\Users\pglynn2960\Documents\Elements 2D\Game_Data\Managed\System.Core.dll (this message is harmless)
+-----------------------------
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:84)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Card: Card #35
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:85)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+CardType: Creature
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:86)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Mat: odyssey-rpg-cards-perseus-WIND (Instance) (UnityEngine.Material)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:87)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Tex: odyssey-rpg-cards-perseus-WIND (UnityEngine.Texture2D)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:88)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+-----------------------------
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:84)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Card: Card #29
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:85)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+CardType: Creature
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:86)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Mat: odyssey-rpg-cards-perseus-WIND (Instance) (UnityEngine.Material)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:87)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Tex: odyssey-rpg-cards-perseus-WIND (UnityEngine.Texture2D)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:88)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+-----------------------------
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:84)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Card: Card #50
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:85)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+CardType: Creature
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:86)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Mat: odyssey-rpg-cards-perseus-WIND (Instance) (UnityEngine.Material)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:87)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Tex: odyssey-rpg-cards-perseus-WIND (UnityEngine.Texture2D)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:88)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+-----------------------------
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:84)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Card: Card #4
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:85)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+CardType: Creature
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:86)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Mat: odyssey-rpg-cards-perseus-WIND (Instance) (UnityEngine.Material)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:87)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Tex: odyssey-rpg-cards-perseus-WIND (UnityEngine.Texture2D)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:88)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+-----------------------------
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:84)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Card: Card #45
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:85)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+CardType: Creature
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:86)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Mat: odyssey-rpg-cards-perseus-WIND (Instance) (UnityEngine.Material)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:87)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Tex: odyssey-rpg-cards-perseus-WIND (UnityEngine.Texture2D)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:88)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+-----------------------------
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:84)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Card: Card #54
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:85)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+CardType: Creature
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:86)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Mat: odyssey-rpg-cards-perseus-WIND (Instance) (UnityEngine.Material)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:87)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Tex: odyssey-rpg-cards-perseus-WIND (UnityEngine.Texture2D)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:88)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+-----------------------------
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:84)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Card: Card #16
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:85)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+CardType: Creature
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:86)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Mat: odyssey-rpg-cards-perseus-WIND (Instance) (UnityEngine.Material)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:87)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Tex: odyssey-rpg-cards-perseus-WIND (UnityEngine.Texture2D)
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Player:RenderHand() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:88)
+Player:Start() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\Player\Player.cs:22)
+ 
+(Filename: C Line: 0)
+
+Card #35 was hit
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+MouseInput:DetectMouse() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\GameManager\MouseInput.cs:47)
+MouseInput:Update() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\GameManager\MouseInput.cs:24)
+ 
+(Filename: C Line: 0)
+
+Platform assembly: C:\Users\pglynn2960\Documents\Elements 2D\Game_Data\Managed\System.dll (this message is harmless)
+Card #50 was hit
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+MouseInput:DetectMouse() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\GameManager\MouseInput.cs:47)
+MouseInput:Update() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\GameManager\MouseInput.cs:24)
+ 
+(Filename: C Line: 0)
+
+Card #35 was hit
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+MouseInput:DetectMouse() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\GameManager\MouseInput.cs:47)
+MouseInput:Update() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\GameManager\MouseInput.cs:24)
+ 
+(Filename: C Line: 0)
+
+Card #29 was hit
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+MouseInput:DetectMouse() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\GameManager\MouseInput.cs:47)
+MouseInput:Update() (at C:\Users\pglynn2960\Documents\Elements 2D\Assets\Scripts\GameManager\MouseInput.cs:24)
+ 
+(Filename: C Line: 0)
+

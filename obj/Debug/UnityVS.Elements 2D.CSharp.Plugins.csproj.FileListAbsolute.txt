@@ -1,0 +1,18 @@
+C:\Users\Bewl\Documents\Elements 2D\Temp\UnityVS_bin\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\Bewl\Documents\Elements 2D\Temp\UnityVS_bin\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\Bewl\Documents\Elements 2D\Temp\UnityVS_bin\Debug\UnityEditor.dll
+C:\Users\Bewl\Documents\Elements 2D\Temp\UnityVS_bin\Debug\UnityEngine.dll
+C:\Users\Bewl\Documents\Elements 2D\Temp\UnityVS_bin\Debug\UnityEngine.xml
+C:\Users\Bewl\Documents\Elements 2D\Temp\UnityVS_bin\Debug\UnityEditor.xml
+C:\Users\Bewl\Documents\Elements 2D\obj\Debug\UnityVS.Elements 2D.CSharp.Plugins.csprojResolveAssemblyReference.cache
+C:\Users\Bewl\Documents\Elements 2D\obj\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\Bewl\Documents\Elements 2D\obj\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\pglynn2960\Documents\Elements 2D\Temp\UnityVS_bin\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\pglynn2960\Documents\Elements 2D\Temp\UnityVS_bin\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\pglynn2960\Documents\Elements 2D\Temp\UnityVS_bin\Debug\UnityEditor.dll
+C:\Users\pglynn2960\Documents\Elements 2D\Temp\UnityVS_bin\Debug\UnityEngine.dll
+C:\Users\pglynn2960\Documents\Elements 2D\Temp\UnityVS_bin\Debug\UnityEngine.xml
+C:\Users\pglynn2960\Documents\Elements 2D\Temp\UnityVS_bin\Debug\UnityEditor.xml
+C:\Users\pglynn2960\Documents\Elements 2D\obj\Debug\UnityVS.Elements 2D.CSharp.Plugins.csprojResolveAssemblyReference.cache
+C:\Users\pglynn2960\Documents\Elements 2D\obj\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\pglynn2960\Documents\Elements 2D\obj\Debug\Assembly-CSharp-firstpass.pdb
