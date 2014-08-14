@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Holoville.HOTween.Plugins.Core;
 using UnityEngine;
 using System.Collections;
@@ -50,6 +51,21 @@ public class Card : MonoBehaviour
         Hover(false);
     }
 
+    public void SetCardData(Card card, int index)
+    {
+        IsInHand = true;
+        Attack = card.Attack;
+        CardType = card.CardType;
+        Defense = card.Defense;
+        ResourceType = card.ResourceType;
+        CardName = card.CardName;
+        HandIndex = index;
+
+        //transform.Find("Defense").GetComponent<TextMesh>().text = Defense.ToString();
+        //transform.Find("Attack").GetComponent<TextMesh>().text = Attack.ToString();
+
+    }
+
     private void Hover(bool isUp)
     {
         if (!MouseInput.isDragging /*&& !MouseInput.isAnimating*/)
@@ -96,7 +112,7 @@ public class Card : MonoBehaviour
                 PlayerGO = GameObject.Find("Player");
                 var player = PlayerGO.GetComponent<Player>();
                 IsDragging = true;
-
+                Debug.Log("Dragging card: " + CardName);
                 player.AdjustCardsInHand();
                 HOTween.To(transform, 0.25f,
                     new TweenParms().Prop("localScale", new Vector3(transform.localScale.x * 2, transform.localScale.y, transform.localScale.z * 2)));
@@ -119,14 +135,15 @@ public class Card : MonoBehaviour
             {
                 IsResetting = false;
                 MouseInput.isDragging = false;
-                gameObject.transform.position = new Vector3(myTransform.position.x, myTransform.position.y,startingPosition.z);
-                
+                //gameObject.transform.position = new Vector3(myTransform.position.x, myTransform.position.y,startingPosition.z);
+
             }));
+
             resetSequence.Insert(0, HOTween.To(transform, 0.25f,
                 new TweenParms().Prop("localScale",
                     new Vector3(startingScale.x, startingScale.y, startingScale.z))));
             resetSequence.Insert(0, HOTween.To(transform, 0.25f, new TweenParms()
-                .Prop("position", new Vector3(startingPosition.x, startingPosition.y, myTransform.position.z))));
+                .Prop("position", new Vector3(startingPosition.x, startingPosition.y, startingPosition.z))));
 
             resetSequence.Play();
         }

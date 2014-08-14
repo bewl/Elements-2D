@@ -100,27 +100,36 @@ public class Player : MonoBehaviour
     private IEnumerator DealCard(Card card, int index)
     {
         var endPosition = Vector3.zero;
-        endPosition.x = Hand.Count * (handSpread * 10);
-        endPosition.z = Hand.Count * -0.1f;
+        endPosition.x = index * (handSpread * 10);
+        endPosition.z = index * -0.1f;
 
-        var startPosistion = new Vector3(60, 0, endPosition.z);
+        var startPosistion = new Vector3(60, 0, index * -0.1f);
         
         GameObject go = (GameObject)Instantiate(CardPrefab, startPosistion, Quaternion.Euler(new Vector3(-90, 0, 0)));
         var data = go.GetComponent<Card>();
 
-        go.transform.Find("Card Front").renderer.material = AssignCardMaterial(card.ResourceType);
+        //
+        //go.transform.Find("Card Front").renderer.material.SetTextureScale("_MainTex", new Vector2(-1, -1));
         go.transform.Find("Card Front").renderer.material.mainTexture = AssignCardTexture(card.ResourceType);
-        data.go = go;
-        data.IsInHand = true;
-        data.Attack = card.Attack;
-        data.CardType = card.CardType;
-        data.Defense = card.Defense;
-        data.ResourceType = card.ResourceType;
-        data.CardName = card.CardName;
-        data.startingPosition = endPosition;
-        data.HandIndex = index;
+        //go.transform.Find("Card Front").renderer.material = AssignCardMaterial(card.ResourceType);
 
+        
+
+        var attackTextMesh = go.transform.Find("AttackText").GetComponent<TextMesh>();
+        float pixelRatio = (Camera.main.orthographicSize * 2.0f) / Camera.main.pixelHeight;
+        attackTextMesh.transform.localScale = new Vector3(pixelRatio * 10.0f, pixelRatio * 10.0f, pixelRatio * 0.1f);
+        attackTextMesh.text = card.Attack.ToString();
+
+        go.transform.Find("DefenseText").GetComponent<TextMesh>().text = card.Defense.ToString();
+        
+        data.go = go;
+
+        data.SetCardData(card, index);
+        
+        data.startingPosition = endPosition;
         Hand.Add(go);
+
+        //start with the card face down
         go.transform.rotation = Quaternion.Euler(-90, 0, -180);
 
         var dealSequence = new Sequence(new SequenceParms().Loops(1));
@@ -145,7 +154,7 @@ public class Player : MonoBehaviour
     }
     Material AssignCardMaterial(ResourceType type)
     {
-        Material mat = Resources.Load("Materials/odyssey-rpg-cards-perseus", typeof(Material)) as Material;
+        var mat = Resources.Load("Materials/odyssey-rpg-cards-perseus", typeof(Material)) as Material;
         switch (type)
         {
 
