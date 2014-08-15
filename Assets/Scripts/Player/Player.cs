@@ -8,21 +8,22 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
-    public int deckSize = 60;
+    public int deckSize         = 60;
     public int startingHandSize = 7;
-    public int Health = 100;
-    public IList<Card> Deck = new List<Card>();
+    public int Health           = 100;
+    public float handSpread     = 0.4f;
+    public float DealTime       = 1.0f;
+
+    public IList<Card> Deck =       new List<Card>();
     public IList<GameObject> Hand = new List<GameObject>();
-    public float DealTime = 1.0f;
-    public Vector3 DeckLocation = new Vector3();
-    public float handSpread = 0.4f;
     public GameObject CardPrefab;
+
+    public Vector3 DeckLocation = new Vector3();
+    public Vector3 HandPosition = new Vector3(0, 0, 0);
     
-    // Use this for initialization
     void Start()
     {
         InitDeck();
-
     }
 
     public void InitDeck()
@@ -31,7 +32,6 @@ public class Player : MonoBehaviour
         StartCoroutine(DealCards(startingHandSize));
         
     }
-
 
     //REMOVE ME!
     public void GenerateDeck()
@@ -59,25 +59,26 @@ public class Player : MonoBehaviour
         Deck.Shuffle();
     }
 
-    void IssueHand()
-    {
-        
-    }
-
     public void AdjustCardsInHand()
     {
+        Debug.Log("Readjusting cards in hand");
         var cardData = Hand.Select(card => card.GetComponent<Card>()).Where(a => !a.IsDragging).ToList();
 
         for (var i = 0; i < cardData.Count; i++)
         {
             var go = cardData[i].gameObject;
 
-            var endPosition = Vector3.zero;
-            endPosition.x = i * (handSpread*10);
-            endPosition.z = i * -0.1f;
+            var endPosition = GetCardResetPosition(go, i);
 
             iTween.MoveTo(go, iTween.Hash("position", endPosition, "time", 0.5f));
         }
+    }
+
+
+    Vector3 GetCardResetPosition(GameObject go, int index)
+    {
+        var endPosition = Camera.main.ScreenToWorldPoint(HandPosition);
+        return endPosition + new Vector3((go.transform.lossyScale.x * 10) + (index * (handSpread * 10)), (go.transform.lossyScale.y * 10), index * -0.1f);
     }
 
     private IEnumerator DealCards(int cardAmount)
@@ -99,22 +100,19 @@ public class Player : MonoBehaviour
 
     private IEnumerator DealCard(Card card, int index)
     {
-        var endPosition = Vector3.zero;
-        endPosition.x = index * (handSpread * 10);
-        endPosition.z = index * -0.1f;
-
         var startPosistion = new Vector3(60, 0, index * -0.1f);
         
         GameObject go = (GameObject)Instantiate(CardPrefab, startPosistion, Quaternion.Euler(new Vector3(-90, 0, 0)));
+
+        var endPosition = GetCardResetPosition(go, index);
+        
         var data = go.GetComponent<Card>();
 
         //
         //go.transform.Find("Card Front").renderer.material.SetTextureScale("_MainTex", new Vector2(-1, -1));
-        go.transform.Find("Card Front").renderer.material.mainTexture = AssignCardTexture(card.ResourceType);
-        //go.transform.Find("Card Front").renderer.material = AssignCardMaterial(card.ResourceType);
-
+        //go.transform.Find("Card Front").renderer.material.mainTexture = AssignCardTexture(card.ResourceType);
+        go.transform.Find("Card Front").renderer.material = AssignCardMaterial(card.ResourceType);
         
-
         var attackTextMesh = go.transform.Find("AttackText").GetComponent<TextMesh>();
         float pixelRatio = (Camera.main.orthographicSize * 2.0f) / Camera.main.pixelHeight;
         attackTextMesh.transform.localScale = new Vector3(pixelRatio * 10.0f, pixelRatio * 10.0f, pixelRatio * 0.1f);
@@ -152,6 +150,7 @@ public class Player : MonoBehaviour
         StopAllCoroutines();
         MouseInput.isAnimating = false;
     }
+
     Material AssignCardMaterial(ResourceType type)
     {
         var mat = Resources.Load("Materials/odyssey-rpg-cards-perseus", typeof(Material)) as Material;
@@ -198,9 +197,4 @@ public class Player : MonoBehaviour
         return tex;
     }
 
-
-    void DrawCard()
-    {
-
-    }
 }

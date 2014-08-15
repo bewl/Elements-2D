@@ -20,3 +20,5 @@ C:\Users\pglynn2960\Documents\Elements 2D\Temp\UnityVS_bin\Debug\UnityEditor.xml
 C:\Users\pglynn2960\Documents\Elements 2D\obj\Debug\UnityVS.Elements 2D.CSharp.csprojResolveAssemblyReference.cache
 C:\Users\pglynn2960\Documents\Elements 2D\obj\Debug\Assembly-CSharp.dll
 C:\Users\pglynn2960\Documents\Elements 2D\obj\Debug\Assembly-CSharp.pdb
+C:\Users\pglynn2960\Documents\Elements 2D\Temp\UnityVS_bin\Debug\HOTween.dll
+C:\Users\pglynn2960\Documents\Elements 2D\Temp\UnityVS_bin\Debug\HOTween.xml

@@ -15,17 +15,18 @@ public class Card : MonoBehaviour
     public Texture cardTexture;
 
     public int HandIndex;
-    public bool IsAnimating = false;
-    public bool IsResetting = false;
-    public bool IsDragging = false;
-    public int Attack;
-    public int Defense;
-    public bool IsInHand = true;
+    public bool IsAnimating     = false;
+    public bool IsResetting     = false;
+    public bool IsDragging      = false;
+    public bool IsInHand        = true;
     public bool IsSelected;
     public bool IsSummonSickness;
+    public int Attack;
+    public int Defense;
+    
     public float BuildTime;
     public Vector3 startingPosition = new Vector3();
-    public Vector3 startingScale = new Vector3();
+    public Vector3 startingScale    = new Vector3();
     public Transform myTransform;
 
     public MouseInput gm;
@@ -37,7 +38,7 @@ public class Card : MonoBehaviour
 
     void Start()
     {
-        gm = GameObject.Find("Main Camera").GetComponent<MouseInput>();
+        //gm = GameObject.Find("Main Camera").GetComponent<MouseInput>();
         startingScale = transform.localScale;
     }
 
@@ -74,11 +75,8 @@ public class Card : MonoBehaviour
                 .Prop("position", new Vector3(gameObject.transform.position.x, (isUp ? startingPosition.y + 2 : startingPosition.y), gameObject.transform.position.z))
                 .Loops(1)
                 .Ease(EaseType.EaseInCirc));
-            //iTween.MoveTo(gameObject, iTween.Hash("y", (isUp ? startingPosition.y + 2 : startingPosition.y), "time", 0.5f, "oncomplete", "AnimationDone"));
         }
     }
-
-
 
     void AnimationDone()
     {
@@ -117,7 +115,7 @@ public class Card : MonoBehaviour
                 HOTween.To(transform, 0.25f,
                     new TweenParms().Prop("localScale", new Vector3(transform.localScale.x * 2, transform.localScale.y, transform.localScale.z * 2)));
             }
-            gameObject.transform.position = new Vector3(ray.origin.x + offSet.x, ray.origin.y + offSet.y, -5);
+            gameObject.transform.position = new Vector3(ray.origin.x + offSet.x, ray.origin.y + offSet.y, -11);
         }
     }
 
@@ -126,6 +124,7 @@ public class Card : MonoBehaviour
         if (go == gameObject && !IsResetting)
         {
             Debug.Log("Resettting " + CardName);
+            Debug.Log("StartingPos.X " + startingPosition.x);
             IsResetting = true;
             IsDragging = false;
             PlayerGO = GameObject.Find("Player");
@@ -135,7 +134,7 @@ public class Card : MonoBehaviour
             {
                 IsResetting = false;
                 MouseInput.isDragging = false;
-                //gameObject.transform.position = new Vector3(myTransform.position.x, myTransform.position.y,startingPosition.z);
+                //gameObject.transform.position = new Vector3(myTransform.position.x, myTransform.position.y, startingPosition.z);
 
             }));
 
@@ -143,26 +142,10 @@ public class Card : MonoBehaviour
                 new TweenParms().Prop("localScale",
                     new Vector3(startingScale.x, startingScale.y, startingScale.z))));
             resetSequence.Insert(0, HOTween.To(transform, 0.25f, new TweenParms()
-                .Prop("position", new Vector3(startingPosition.x, startingPosition.y, startingPosition.z))));
+                .Prop("position", startingPosition)));
 
             resetSequence.Play();
         }
-    }
-
-    //private void hovercard(gameobject go, vector3 pos)
-    //{
-
-    //    if (go == gameobject && isinhand)
-    //        itween.moveto(gameobject, itween.hash("y", mytransform.position.y + 2, "z", mytransform.position.z - 5, "time", 0.5f, "oncomplete", "animationdone"));
-    //    else
-    //        itween.moveto(gameobject, itween.hash("y", mytransform.position.y - 2, "z", mytransform.position.z - 5, "time", 0.5f, "oncomplete", "animationdone"));
-    //}
-
-    void resetZindex(float z)
-    {
-        MouseInput.isDragging = false;
-        //gameObject.transform.localScale = new Vector3(1, 0.1f, 1);
-        gameObject.transform.position = new Vector3(myTransform.position.x, myTransform.position.y, z);
     }
 
     void Initialize()
