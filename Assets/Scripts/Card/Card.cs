@@ -14,15 +14,16 @@ public class Card : MonoBehaviour
     public IList<CardResource> Cost;
     public Texture cardTexture;
 
-    public int HandIndex;
-    public bool IsAnimating     = false;
-    public bool IsResetting     = false;
-    public bool IsDragging      = false;
-    public bool IsInHand        = true;
-    public bool IsSelected;
-    public bool IsSummonSickness;
-    public int Attack;
-    public int Defense;
+    public bool IsAnimating         = false;
+    public bool IsResetting         = false;
+    public bool IsDragging          = false;
+    public bool IsInHand            = true;
+    public bool IsSelected          = false;
+    public bool IsSummonSickness    = false;
+
+    public int HandIndex    = 0;
+    public int Attack       = 0;
+    public int Defense      = 0;
     
     public float BuildTime;
     public Vector3 startingPosition = new Vector3();
@@ -61,15 +62,11 @@ public class Card : MonoBehaviour
         ResourceType = card.ResourceType;
         CardName = card.CardName;
         HandIndex = index;
-
-        //transform.Find("Defense").GetComponent<TextMesh>().text = Defense.ToString();
-        //transform.Find("Attack").GetComponent<TextMesh>().text = Attack.ToString();
-
     }
 
     private void Hover(bool isUp)
     {
-        if (!MouseInput.isDragging /*&& !MouseInput.isAnimating*/)
+        if (!MouseInput.isDragging && !IsAnimating)
         {
             HOTween.To(gameObject.transform, 0.2f, new TweenParms()
                 .Prop("position", new Vector3(gameObject.transform.position.x, (isUp ? startingPosition.y + 2 : startingPosition.y), gameObject.transform.position.z))

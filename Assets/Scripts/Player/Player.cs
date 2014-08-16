@@ -8,15 +8,17 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
+    public GameObject CardPrefab;
+
     public int deckSize         = 60;
     public int startingHandSize = 7;
     public int Health           = 100;
+    public int MaxCardsInHand   = 12;
     public float handSpread     = 0.4f;
     public float DealTime       = 1.0f;
 
-    public IList<Card> Deck =       new List<Card>();
-    public IList<GameObject> Hand = new List<GameObject>();
-    public GameObject CardPrefab;
+    public IList<Card> Deck         = new List<Card>();
+    public IList<GameObject> Hand   = new List<GameObject>();
 
     public Vector3 DeckLocation = new Vector3();
     public Vector3 HandPosition = new Vector3(0, 0, 0);
@@ -113,7 +115,7 @@ public class Player : MonoBehaviour
         GameObject go = (GameObject)Instantiate(CardPrefab, startPosistion, Quaternion.Euler(new Vector3(-90, 0, -180)));
         
         //grab the Card script from the game object, which has all the card specific data
-        var data = go.GetComponent<Card>();
+        var cardData = go.GetComponent<Card>();
 
         //find out where on the screen the card will live after it is delt to your hand
         var endPosition = GetCardResetPosition(go, index);
@@ -122,14 +124,17 @@ public class Player : MonoBehaviour
         go.transform.Find("Card Front").renderer.material = AssignCardMaterial(card.ResourceType);
 
         //map the card data to the Card script, along with the hand index
-        data.SetCardData(card, index);
+        cardData.SetCardData(card, index);
         
         //the actual cards starting position will now be its position in the hand
-        data.startingPosition = endPosition;
-        Hand.Add(data.gameObject);
+        cardData.startingPosition = endPosition;
+
+        //Set the cardData to let it know its animating
+        cardData.IsAnimating = true;
+        Hand.Add(cardData.gameObject);
 
         //Animate the card to flip 180deg and tween its position from the deck to the hand
-        var dealSequence = new Sequence(new SequenceParms().Loops(1));
+        var dealSequence = new Sequence(new SequenceParms().Loops(1).OnComplete(() => { cardData.IsAnimating = false; }));
 
         dealSequence.Insert(0,
             HOTween.To(go.transform, 1f,

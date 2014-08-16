@@ -8,7 +8,7 @@ using UnityEngine;
 public class MouseInput : MonoBehaviour
 {
     public Card cardData;
-    public GameObject card;
+    public GameObject obj;
     Ray rayCast;
     RaycastHit hit;
     Vector3 offSet;
@@ -30,24 +30,52 @@ public class MouseInput : MonoBehaviour
     {
         rayCast = Camera.main.ScreenPointToRay(Input.mousePosition);
         var hit = new RaycastHit();
-        
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            var tempHit = new RaycastHit();
+            if (Physics.Raycast(rayCast, out tempHit, Mathf.Infinity))
+            {
+                var obj = tempHit.transform.gameObject;
+
+                
+            }
+
+        }
+
         if (cardData == null && Input.GetMouseButtonDown(0) && !MouseInput.isDragging)
         {
             if (Physics.Raycast(rayCast, out hit, Mathf.Infinity))
             {
-                MouseInput.isDragging = true;
-                card = hit.transform.gameObject;
-            
-                cardData = card.GetComponent<Card>();
-                cardData.IsSelected = true;
+                
+                obj = hit.transform.gameObject;
 
-                offSet = card.transform.position - rayCast.origin;
+                if (obj.tag == "Card")
+                {
+                    MouseInput.isDragging = true;
 
-                Debug.Log(cardData.CardName + " was selected");
+                    cardData = obj.GetComponent<Card>();
+                    cardData.IsSelected = true;
+
+                    offSet = obj.transform.position - rayCast.origin;
+
+                    Debug.Log(cardData.CardName + " was selected");
+                }
+                else
+                {
+                    var sprite = obj.GetComponent<SpriteRenderer>() as SpriteRenderer;
+
+                    if (sprite != null)
+                    {
+                        Debug.Log("CLICKED A SPRITE");
+                        sprite.enabled = !sprite.enabled;
+                    }
+                
+                }
             }
             else if(cardData != null)
             {
-                resetCard(card);
+                resetCard(obj);
                 MouseInput.isDragging = false;
                 cardData.IsSelected = false;
                 cardData = null;
@@ -55,7 +83,7 @@ public class MouseInput : MonoBehaviour
         }
         else if (cardData != null && Input.GetMouseButtonUp(0))
         {
-            resetCard(card);
+            resetCard(obj);
             //MouseInput.isDragging = false;
             cardData.IsSelected = false;
             cardData = null;
@@ -63,7 +91,7 @@ public class MouseInput : MonoBehaviour
 
         if (moveCard != null && offSet != null && cardData != null && cardData.IsSelected)
         {
-            moveCard(card, rayCast, offSet);
+            moveCard(obj, rayCast, offSet);
         }
 
     }
