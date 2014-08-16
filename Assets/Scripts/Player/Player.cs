@@ -28,7 +28,10 @@ public class Player : MonoBehaviour
 
     public void InitDeck()
     {
+        //THis is just temporary, but we are programatically generating a deck
         GenerateDeck();
+
+        //Time to deal out the deck
         StartCoroutine(DealCards(startingHandSize));
         
     }
@@ -91,45 +94,41 @@ public class Player : MonoBehaviour
             
             Deck.RemoveAt(0);
 
-            StartCoroutine(DealCard(card, i));
 
+            DealCard(card, i);
             yield return new WaitForSeconds(DealTime);
             
         }
     }
 
-    private IEnumerator DealCard(Card card, int index)
+
+    //Refactor the shit out of this. All card operations should exist within the card class.
+    //This is just plain messy on my part.
+    private void DealCard(Card card, int index)
     {
+        //what location the card is being dealt from
         var startPosistion = new Vector3(60, 0, index * -0.1f);
         
-        GameObject go = (GameObject)Instantiate(CardPrefab, startPosistion, Quaternion.Euler(new Vector3(-90, 0, 0)));
-
-        var endPosition = GetCardResetPosition(go, index);
+        //create actual card object and have it reside at the startPosition, but face down
+        GameObject go = (GameObject)Instantiate(CardPrefab, startPosistion, Quaternion.Euler(new Vector3(-90, 0, -180)));
         
+        //grab the Card script from the game object, which has all the card specific data
         var data = go.GetComponent<Card>();
 
-        //
-        //go.transform.Find("Card Front").renderer.material.SetTextureScale("_MainTex", new Vector2(-1, -1));
-        //go.transform.Find("Card Front").renderer.material.mainTexture = AssignCardTexture(card.ResourceType);
+        //find out where on the screen the card will live after it is delt to your hand
+        var endPosition = GetCardResetPosition(go, index);
+        
+        //this is temporary, but we display the material specific to the card resource type
         go.transform.Find("Card Front").renderer.material = AssignCardMaterial(card.ResourceType);
-        
-        var attackTextMesh = go.transform.Find("AttackText").GetComponent<TextMesh>();
-        float pixelRatio = (Camera.main.orthographicSize * 2.0f) / Camera.main.pixelHeight;
-        attackTextMesh.transform.localScale = new Vector3(pixelRatio * 10.0f, pixelRatio * 10.0f, pixelRatio * 0.1f);
-        attackTextMesh.text = card.Attack.ToString();
 
-        go.transform.Find("DefenseText").GetComponent<TextMesh>().text = card.Defense.ToString();
-        
-        data.go = go;
-
+        //map the card data to the Card script, along with the hand index
         data.SetCardData(card, index);
         
+        //the actual cards starting position will now be its position in the hand
         data.startingPosition = endPosition;
-        Hand.Add(go);
+        Hand.Add(data.gameObject);
 
-        //start with the card face down
-        go.transform.rotation = Quaternion.Euler(-90, 0, -180);
-
+        //Animate the card to flip 180deg and tween its position from the deck to the hand
         var dealSequence = new Sequence(new SequenceParms().Loops(1));
 
         dealSequence.Insert(0,
@@ -140,9 +139,7 @@ public class Player : MonoBehaviour
                 new TweenParms().Prop("position", endPosition)));
 
         dealSequence.Play();
-
-        yield return new WaitForSeconds(0);
-        
+       
     }
 
     public void StopRoutines()

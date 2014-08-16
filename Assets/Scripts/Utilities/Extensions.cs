@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
+using Random = System.Random;
 
 namespace Assets.Scripts.Utilities
 {
@@ -20,5 +21,29 @@ namespace Assets.Scripts.Utilities
                 list[n] = value;
             }
         }
+
+        #region Vector3 Shizz
+        public static void SetXPos(this Transform transform, float x)
+        {
+            Vector3 newPos = new Vector3(x, transform.position.y, transform.position.z);
+
+            transform.position = newPos;
+        }
+
+        public static void SetYPos(this Transform transform, float y)
+        {
+            Vector3 newPos = new Vector3(transform.position.x, y, transform.position.z);
+
+            transform.position = newPos;
+        }
+
+        public static void SetZPos(this Transform transform, float z)
+        {
+            Vector3 newPos = new Vector3(transform.position.x, transform.position.y, z);
+
+            transform.position = newPos;
+        }
+
+        #endregion
     }
 }

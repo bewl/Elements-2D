@@ -126,16 +126,17 @@ public class Card : MonoBehaviour
             Debug.Log("Resettting " + CardName);
             Debug.Log("StartingPos.X " + startingPosition.x);
             IsResetting = true;
-            IsDragging = false;
+            
             PlayerGO = GameObject.Find("Player");
             var player = PlayerGO.GetComponent<Player>();
-            player.AdjustCardsInHand();
+            IsDragging = false;
+            
             var resetSequence = new Sequence(new SequenceParms().Loops(1).OnComplete(() =>
             {
                 IsResetting = false;
                 MouseInput.isDragging = false;
                 //gameObject.transform.position = new Vector3(myTransform.position.x, myTransform.position.y, startingPosition.z);
-
+                player.AdjustCardsInHand();
             }));
 
             resetSequence.Insert(0, HOTween.To(transform, 0.25f,
