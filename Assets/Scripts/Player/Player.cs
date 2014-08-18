@@ -17,8 +17,10 @@ public class Player : MonoBehaviour
     public float handSpread     = 0.4f;
     public float DealTime       = 1.0f;
 
-    public IList<Card> Deck         = new List<Card>();
-    public IList<GameObject> Hand   = new List<GameObject>();
+    public IList<Card> Deck             = new List<Card>();
+    public IList<GameObject> Hand       = new List<GameObject>();
+    public IList<GameObject> InPlay     = new List<GameObject>();
+    public IList<GameObject> Graveyard  = new List<GameObject>();
 
     public Vector3 DeckLocation = new Vector3();
     public Vector3 HandPosition = new Vector3(0, 0, 0);
@@ -134,6 +136,19 @@ public class Player : MonoBehaviour
         Hand.Add(cardData.gameObject);
 
         //Animate the card to flip 180deg and tween its position from the deck to the hand
+
+        var i = (index * 1.0 / Hand.Count);
+
+        var angle = (float)(i * Mathf.PI * 0.5) - Mathf.PI / 4;
+
+        var radiusX = 10;
+        var radiusZ = 4.3;
+
+        var x = (float)(Mathf.Sin(angle) * radiusX);
+        var y = (float)(Mathf.Cos(angle) * radiusZ);
+
+        var arcVector = new Vector3(x, y, index*-0.1f);
+
         var dealSequence = new Sequence(new SequenceParms().Loops(1).OnComplete(() => { cardData.IsAnimating = false; }));
 
         dealSequence.Insert(0,
@@ -144,7 +159,8 @@ public class Player : MonoBehaviour
                 new TweenParms().Prop("position", endPosition)));
 
         dealSequence.Play();
-       
+
+        
     }
 
     public void StopRoutines()

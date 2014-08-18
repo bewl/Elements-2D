@@ -20,6 +20,8 @@ public class Card : MonoBehaviour
     public bool IsInHand            = true;
     public bool IsSelected          = false;
     public bool IsSummonSickness    = false;
+    public bool IsInPlayableArea    = false;
+    public bool IsSlotted           = false;
 
     public int HandIndex    = 0;
     public int Attack       = 0;
@@ -66,7 +68,7 @@ public class Card : MonoBehaviour
 
     private void Hover(bool isUp)
     {
-        if (!MouseInput.isDragging && !IsAnimating)
+        if (!MouseInput.isDragging && !IsAnimating && IsInHand)
         {
             HOTween.To(gameObject.transform, 0.2f, new TweenParms()
                 .Prop("position", new Vector3(gameObject.transform.position.x, (isUp ? startingPosition.y + 2 : startingPosition.y), gameObject.transform.position.z))
@@ -88,17 +90,20 @@ public class Card : MonoBehaviour
             {
                 MouseInput.moveCard += this.dragCard;
                 MouseInput.resetCard += this.resetCard;
+                MouseInput.animateCardToPlayableArea += this.animateCardToPlayableArea;
+                MouseInput.slotCard += this.slotCard;
             }
 
             else
             {
                 MouseInput.moveCard -= this.dragCard;
                 MouseInput.resetCard -= this.resetCard;
+                MouseInput.animateCardToPlayableArea -= this.animateCardToPlayableArea;
             }
         }
     }
 
-    private void dragCard(GameObject go, Ray ray, Vector3 offSet)
+    public void dragCard(GameObject go, Ray ray, Vector3 offSet)
     {
         if (go == gameObject && IsInHand)
         {
@@ -116,9 +121,9 @@ public class Card : MonoBehaviour
         }
     }
 
-    private void resetCard(GameObject go)
+    public void resetCard(GameObject go)
     {
-        if (go == gameObject && !IsResetting)
+        if (go == gameObject && !IsResetting && IsInHand)
         {
             Debug.Log("Resettting " + CardName);
             Debug.Log("StartingPos.X " + startingPosition.x);
@@ -143,6 +148,46 @@ public class Card : MonoBehaviour
                 .Prop("position", startingPosition)));
 
             resetSequence.Play();
+        }
+    }
+
+    public void animateCardToPlayableArea(GameObject gobj, bool hasEnetered)
+    {
+        if (gobj == gameObject)
+        {
+            var newScale = new Vector3();
+
+            if (!IsInPlayableArea && hasEnetered)
+            {
+                IsInPlayableArea = true;
+                HOTween.To(transform, 0.25f,
+                    new TweenParms().Prop("localScale", new Vector3(startingScale.x, startingScale.y, startingScale.z)));
+            }
+            else if (IsInPlayableArea && !hasEnetered)
+            {
+                IsInPlayableArea = false;
+                HOTween.To(transform, 0.25f,
+                    new TweenParms().Prop("localScale", new Vector3(transform.localScale.x * 2, transform.localScale.y, transform.localScale.z * 2)));
+            }
+        }
+    }
+
+    public void slotCard(GameObject gobj, GameObject slot)
+    {
+        if (gobj == gameObject && IsInHand)
+        {
+            IsInHand = false;
+            MouseInput.isDragging = false;
+            slot.GetComponent<SpriteRenderer>().enabled = false;
+
+            slot.GetComponent<Slot>().slottedCard = gameObject;
+
+            PlayerGO = GameObject.Find("Player");
+            var player = PlayerGO.GetComponent<Player>();
+            player.InPlay.Add(gameObject);
+
+            HOTween.To(transform, 0.25f, new TweenParms().Prop("position", slot.transform.position));
+
         }
     }
 
